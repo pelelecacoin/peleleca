@@ -1,0 +1,13 @@
+{
+  "name": "PELELECA",
+  "symbol": "PP",
+  "description": "A memecoin da indignacao nacional. Se o sistema e uma festa fechada, a Peleleca e a festa do povo. 51,8 bilhoes de tokens — cada um = R$ 1 do rombo do Banco Master no FGC.",
+  "image": "https://peleleca.com/assets/logo.png",
+  "external_url": "https://peleleca.com",
+  "attributes": [
+    { "trait_type": "Supply", "value": "51,800,000,000" },
+    { "trait_type": "Liquidez", "value": "93%" },
+    { "trait_type": "Fomento", "value": "7%" },
+    { "trait_type": "Insiders", "value": "0%" }
+  ]
+}
