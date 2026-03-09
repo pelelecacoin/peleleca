@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PELELECA ($PP) - A Festa do Povo</title>
+  <meta name="description" content="PELELECA ($PP) - A memecoin da indignacao nacional. 51,8 bilhoes de tokens na Solana. 93% liquidez permanente. Sem insiders." />
+
+  <meta property="og:title" content="PELELECA ($PP) - A Festa do Povo" />
+  <meta property="og:description" content="Memecoin nascida da indignacao. 51,8 bilhoes de tokens. 93% liquidez permanente. Sem insiders." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://peleleca.com" />
+  <meta property="og:image" content="https://peleleca.com/assets/logo.png" />
+
+  <link rel="icon" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body class="min-h-screen overflow-x-hidden bg-pp-dark">
+
+  <!-- Fundo animado -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <canvas id="particles" class="fixed inset-0 pointer-events-none z-[1]"></canvas>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="fixed top-0 w-full z-50 transition-all duration-500">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="logo-ring w-10 h-10">
+          <img src="/assets/logo.png" alt="PELELECA" class="w-full h-full rounded-full object-cover" />
+        </div>
+        <span class="font-display text-lg font-bold text-pp-gold tracking-widest group-hover:text-white transition-colors">PELELECA</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-10 text-sm">
+        <a href="#manifesto" class="nav-link home-link">Manifesto</a>
+        <a href="#tokenomics" class="nav-link home-link">Tokenomics</a>
+        <a href="#seguranca" class="nav-link home-link">Seguranca</a>
+        <a href="#como-comprar" class="nav-link home-link">Como Comprar</a>
+        <button onclick="toggleWhitepaper()" id="wp-nav-btn" class="nav-link cursor-pointer bg-transparent border-none font-body">Whitepaper</button>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://solscan.io/token/B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 text-xs text-gray-500 hover:text-pp-gold border border-white/5 px-3 py-2 rounded-lg transition-all hover:border-pp-gold/30">
+          <span class="w-1.5 h-1.5 bg-pp-green rounded-full animate-pulse"></span>
+          Solscan
+        </a>
+        <a href="#como-comprar" class="btn-primary text-sm !px-6 !py-2.5">
+          Comprar $PP
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-gray-400 hover:text-white transition-colors p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden bg-pp-dark/98 backdrop-blur-2xl border-t border-white/5 px-6 py-6 space-y-4">
+      <a href="#manifesto" class="block text-gray-300 hover:text-pp-gold transition-colors text-lg home-link">Manifesto</a>
+      <a href="#tokenomics" class="block text-gray-300 hover:text-pp-gold transition-colors text-lg home-link">Tokenomics</a>
+      <a href="#seguranca" class="block text-gray-300 hover:text-pp-gold transition-colors text-lg home-link">Seguranca</a>
+      <a href="#como-comprar" class="block text-gray-300 hover:text-pp-gold transition-colors text-lg home-link">Como Comprar</a>
+      <button onclick="toggleWhitepaper()" class="block text-gray-300 hover:text-pp-gold transition-colors text-lg bg-transparent border-none font-body cursor-pointer p-0">Whitepaper</button>
+    </div>
+  </header>
+
+  <!-- ========== HOME CONTENT ========== -->
+  <div id="home-content">
+
+  <!-- ========== HERO ========== -->
+  <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 z-10">
+    <div class="text-center max-w-5xl w-full">
+
+      <!-- Logo hero -->
+      <div class="relative mx-auto w-36 h-36 md:w-48 md:h-48 mb-10 animate-fade-in">
+        <div class="absolute inset-[-20px] bg-pp-gold/10 rounded-full blur-[80px] animate-pulse-slow"></div>
+        <div class="absolute inset-[-4px] rounded-full bg-gradient-to-b from-pp-gold/60 to-pp-gold/10 p-[3px]">
+          <div class="w-full h-full rounded-full overflow-hidden bg-pp-dark">
+            <img src="/assets/logo.png" alt="PELELECA" class="w-full h-full rounded-full object-cover scale-[1.05]" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge -->
+      <div class="mb-8 animate-fade-in-delay-1">
+        <span class="inline-flex items-center gap-2 bg-pp-gold/5 text-pp-gold text-xs font-semibold px-5 py-2 rounded-full border border-pp-gold/15 uppercase tracking-[0.2em]">
+          <span class="w-1.5 h-1.5 bg-pp-green rounded-full animate-pulse"></span>
+          Solana Mainnet
+        </span>
+      </div>
+
+      <!-- Titulo -->
+      <h1 class="animate-fade-in-delay-1">
+        <span class="block text-6xl md:text-8xl lg:text-9xl font-bold text-pp-gold font-display tracking-tight">PELELECA</span>
+        <span class="block text-4xl md:text-5xl font-bold text-pp-gold font-display mt-2 tracking-[0.3em]">$PP</span>
+      </h1>
+
+      <!-- Subtitulo -->
+      <div class="mt-10 mb-12 animate-fade-in-delay-2">
+        <p class="text-lg md:text-xl text-gray-500 font-light leading-relaxed">
+          Se o sistema e uma festa fechada,
+        </p>
+        <p class="text-xl md:text-2xl text-white font-medium mt-1">
+          a Peleleca e a <span class="text-pp-gold">festa do povo</span>.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20 animate-fade-in-delay-3">
+        <a href="#como-comprar" class="btn-primary text-base pulse-glow group">
+          <span class="flex items-center justify-center gap-2">
+            Comprar $PP
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </span>
+        </a>
+        <a href="#manifesto" class="btn-secondary text-base">
+          Ler Manifesto
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 animate-fade-in-delay-3">
+        <div class="stat-card">
+          <p class="text-2xl md:text-3xl font-bold text-pp-gold font-display" data-count="51.8">0</p>
+          <p class="text-[10px] text-gray-600 uppercase tracking-[0.15em] mt-2">Bilhoes de Tokens</p>
+        </div>
+        <div class="stat-card">
+          <p class="text-2xl md:text-3xl font-bold text-pp-gold font-display" data-count="93" data-suffix="%">0</p>
+          <p class="text-[10px] text-gray-600 uppercase tracking-[0.15em] mt-2">Liquidez Permanente</p>
+        </div>
+        <div class="stat-card">
+          <p class="text-2xl md:text-3xl font-bold text-pp-gold font-display" data-count="7" data-suffix="%">0</p>
+          <p class="text-[10px] text-gray-600 uppercase tracking-[0.15em] mt-2">Fomento</p>
+        </div>
+        <div class="stat-card">
+          <p class="text-2xl md:text-3xl font-bold text-pp-gold font-display">0%</p>
+          <p class="text-[10px] text-gray-600 uppercase tracking-[0.15em] mt-2">Insiders</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
+      <span class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">Scroll</span>
+      <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider"></div>
+
+  <!-- ========== MANIFESTO ========== -->
+  <section id="manifesto" class="relative py-32 px-6 z-10">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="section-label">A Origem</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-white">
+          O <span class="text-pp-gold">Manifesto</span>
+        </h2>
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-0 bg-pp-gold/[0.02] rounded-3xl blur-[100px]"></div>
+
+        <div class="relative space-y-0">
+          <!-- Capitulo 1 -->
+          <div class="manifesto-block">
+            <div class="manifesto-number">I</div>
+            <div class="manifesto-content">
+              <h3 class="text-xl font-semibold text-white mb-4">A Festa que Ninguem te Convidou</h3>
+              <p class="text-gray-400 leading-[1.9]">
+                Um unico homem gastou <span class="text-pp-gold font-medium">R$ 111 milhoes em festas particulares</span>.
+                Artistas internacionais, champagne de milhares de reais, jatos privados.
+                Enquanto isso, milhoes de brasileiros mal conseguiam fechar o mes.
+                O dinheiro? Saiu de uma estrutura financeira construida sobre ativos podres,
+                fraudulentos, manipulados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Capitulo 2 -->
+          <div class="manifesto-block">
+            <div class="manifesto-number">II</div>
+            <div class="manifesto-content">
+              <h3 class="text-xl font-semibold text-white mb-4">O Rombo</h3>
+              <p class="text-gray-400 leading-[1.9]">
+                O estrago estimado: <span class="text-pp-gold font-medium">R$ 51,8 bilhoes no FGC</span> &mdash;
+                o Fundo Garantidor de Creditos que existe para proteger o dinheiro do povo.
+                O maior rombo da historia do fundo. Bilhoes que deveriam ser rede de seguranca
+                para milhoes de pequenos investidores.
+              </p>
+              <p class="text-gray-400 leading-[1.9] mt-4">
+                Cada token <span class="text-pp-gold font-medium">$PP</span> representa simbolicamente
+                <span class="text-white font-medium">R$ 1 desse prejuizo</span>.
+                51,8 bilhoes de tokens. Nem um a mais.
+              </p>
+            </div>
+          </div>
+
+          <!-- Capitulo 3 -->
+          <div class="manifesto-block">
+            <div class="manifesto-number">III</div>
+            <div class="manifesto-content">
+              <h3 class="text-xl font-semibold text-white mb-4">A Resposta do Povo</h3>
+              <p class="text-gray-400 leading-[1.9]">
+                A PELELECA nao e uma moeda de odio. E uma moeda de <span class="text-pp-gold font-medium">uniao</span>.
+                Se um cara sozinho conseguiu movimentar bilhoes numa estrutura fraudulenta,
+                imagine o que uma comunidade unida, transparente e descentralizada pode construir.
+              </p>
+              <p class="text-gray-400 leading-[1.9] mt-4">
+                Sem insider. Sem wallet privilegiada. Sem promessa falsa.
+                Apenas codigo aberto, liquidez travada, e a forca de uma comunidade
+                que decidiu nao ficar calada.
+              </p>
+            </div>
+          </div>
+
+          <!-- Frase final -->
+          <div class="text-center pt-12 pb-4">
+            <div class="inline-block">
+              <div class="w-12 h-px bg-gradient-to-r from-transparent via-pp-gold to-transparent mx-auto mb-8"></div>
+              <p class="text-2xl md:text-3xl font-display font-bold text-white leading-snug">
+                A elite fez a festa deles<br/>as custas do povo.
+              </p>
+              <p class="text-2xl md:text-3xl font-display font-bold text-pp-gold mt-3">
+                Agora e a nossa vez.
+              </p>
+              <div class="w-12 h-px bg-gradient-to-r from-transparent via-pp-gold to-transparent mx-auto mt-8"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider"></div>
+
+  <!-- ========== TOKENOMICS ========== -->
+  <section id="tokenomics" class="relative py-32 px-6 z-10">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="section-label">Distribuicao</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-white">
+          <span class="text-pp-gold">Tokenomics</span>
+        </h2>
+      </div>
+
+      <!-- Supply -->
+      <div class="text-center mb-16">
+        <p class="text-gray-600 text-xs uppercase tracking-[0.3em] mb-4">Supply Total Fixo</p>
+        <p class="text-5xl md:text-7xl font-bold font-display text-pp-gold tracking-tight">
+          51.800.000.000
+        </p>
+        <p class="text-gray-500 mt-4 text-base">Cada token = R$ 1 do rombo do Banco Master</p>
+      </div>
+
+      <!-- Barra visual -->
+      <div class="max-w-2xl mx-auto mb-16">
+        <div class="flex gap-1 h-4 rounded-full overflow-hidden">
+          <div class="bg-gradient-to-r from-pp-gold to-amber-500 rounded-l-full" style="width: 93%"></div>
+          <div class="bg-gradient-to-r from-emerald-600 to-pp-green rounded-r-full" style="width: 7%"></div>
+        </div>
+        <div class="flex justify-between mt-3 text-xs text-gray-500">
+          <span>93% Liquidez</span>
+          <span>7% Fomento</span>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="glass-card group hover:border-pp-gold/20">
+          <div class="flex items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-pp-gold/5 border border-pp-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-pp-gold/10 transition-colors">
+              <span class="text-3xl font-display font-bold text-pp-gold">93</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-1">Pool de Liquidez</h3>
+              <p class="text-sm text-gray-500 mb-3">48.174.000.000 $PP</p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Depositado na Raydium (par SOL/PP). LP tokens queimados permanentemente.
+                A liquidez e irreversivel.
+              </p>
+              <div class="mt-4 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-pp-green rounded-full"></span>
+                <span class="text-xs text-pp-green font-medium">Rug pull impossivel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card group hover:border-pp-gold/20">
+          <div class="flex items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-pp-green/5 border border-pp-green/10 flex items-center justify-center flex-shrink-0 group-hover:bg-pp-green/10 transition-colors">
+              <span class="text-3xl font-display font-bold text-pp-green">7</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-1">Fomento</h3>
+              <p class="text-sm text-gray-500 mb-3">3.626.000.000 $PP</p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Reserva para criadores de conteudo, parceiros e acoes de comunidade.
+                Distribuicao manual e 100% transparente.
+              </p>
+              <div class="mt-4 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-pp-gold rounded-full"></span>
+                <span class="text-xs text-pp-gold font-medium">Sem vesting escondido</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider"></div>
+
+  <!-- ========== SEGURANCA ========== -->
+  <section id="seguranca" class="relative py-32 px-6 z-10">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="section-label">Verificavel On-Chain</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-white">
+          Seguranca <span class="text-pp-gold">Garantida</span>
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-lg mx-auto text-sm">
+          Sem promessas. Apenas provas criptograficas verificaveis por qualquer pessoa na blockchain.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+        <div class="glass-card group hover:border-pp-gold/15 text-center">
+          <div class="security-icon group-hover:scale-110">
+            <svg class="w-7 h-7 text-pp-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2 text-white">Mint Authority Revogada</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Ninguem pode criar novos tokens. Supply fixo para sempre.</p>
+        </div>
+
+        <div class="glass-card group hover:border-pp-gold/15 text-center">
+          <div class="security-icon group-hover:scale-110">
+            <svg class="w-7 h-7 text-pp-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2 text-white">Freeze Authority Revogada</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Ninguem pode congelar tokens de nenhuma wallet.</p>
+        </div>
+
+        <div class="glass-card group hover:border-pp-gold/15 text-center">
+          <div class="security-icon group-hover:scale-110">
+            <svg class="w-7 h-7 text-pp-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2 text-white">LP Tokens Queimados</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Liquidez permanente e irremovivel. Impossivel fazer rug pull.</p>
+        </div>
+
+        <div class="glass-card group hover:border-pp-gold/15 text-center">
+          <div class="security-icon group-hover:scale-110">
+            <svg class="w-7 h-7 text-pp-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2 text-white">100% Verificavel</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Todas as transacoes e provas publicas na blockchain Solana.</p>
+        </div>
+
+        <div class="glass-card group hover:border-pp-gold/15 text-center">
+          <div class="security-icon group-hover:scale-110">
+            <svg class="w-7 h-7 text-pp-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2 text-white">Contrato do Povo</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Sem wallet privilegiada. Sem insider. Sem reserva escondida.</p>
+        </div>
+
+        <div class="glass-card group hover:border-pp-gold/15 text-center">
+          <div class="security-icon group-hover:scale-110">
+            <svg class="w-7 h-7 text-pp-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2 text-white">Solana Mainnet</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Transacoes rapidas, baratas e descentralizadas.</p>
+        </div>
+      </div>
+
+      <!-- Contract Address -->
+      <div class="max-w-3xl mx-auto">
+        <div class="glass-card border-pp-gold/10 text-center">
+          <p class="text-gray-600 text-xs uppercase tracking-[0.3em] mb-4">Contract Address (CA)</p>
+          <div class="flex items-center justify-center gap-3 bg-black/30 rounded-xl px-5 py-4 border border-white/[0.04]">
+            <code id="contract-address" class="text-pp-gold text-sm md:text-base font-mono break-all select-all tracking-wide">B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt</code>
+            <button id="btn-copy-contract" class="flex-shrink-0 w-10 h-10 bg-pp-gold/5 hover:bg-pp-gold/15 text-pp-gold rounded-lg transition-all hover:scale-105 active:scale-95 flex items-center justify-center border border-pp-gold/10" title="Copiar">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+          <p id="copy-feedback" class="text-pp-green text-xs mt-3 opacity-0 transition-opacity duration-300">Copiado!</p>
+          <a href="https://solscan.io/token/B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-pp-gold mt-3 transition-colors">
+            Ver no Solscan
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider"></div>
+
+  <!-- ========== COMO COMPRAR ========== -->
+  <section id="como-comprar" class="relative py-32 px-6 z-10">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="section-label">3 passos simples</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-white">
+          Como <span class="text-pp-gold">Comprar</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="relative glass-card text-center group hover:border-pp-gold/20 pt-10">
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-b from-pp-gold to-amber-600 text-black font-bold text-sm flex items-center justify-center shadow-lg shadow-pp-gold/20 font-display">1</div>
+          <h3 class="font-semibold text-lg mb-3 text-white">Crie sua Wallet</h3>
+          <p class="text-gray-500 text-sm mb-5 leading-relaxed">
+            Baixe a carteira Phantom no navegador ou celular. Crie sua wallet em 1 minuto.
+          </p>
+          <a href="https://phantom.app" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-pp-gold text-sm font-medium hover:text-white transition-colors">
+            phantom.app
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
+        <div class="relative glass-card text-center group hover:border-pp-gold/20 pt-10">
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-b from-pp-gold to-amber-600 text-black font-bold text-sm flex items-center justify-center shadow-lg shadow-pp-gold/20 font-display">2</div>
+          <h3 class="font-semibold text-lg mb-3 text-white">Compre SOL</h3>
+          <p class="text-gray-500 text-sm mb-5 leading-relaxed">
+            Compre SOL em qualquer exchange (Binance, Mercado Bitcoin, Bybit) e envie para sua Phantom.
+          </p>
+        </div>
+
+        <div class="relative glass-card text-center group hover:border-pp-gold/20 pt-10">
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-b from-pp-gold to-amber-600 text-black font-bold text-sm flex items-center justify-center shadow-lg shadow-pp-gold/20 font-display">3</div>
+          <h3 class="font-semibold text-lg mb-3 text-white">Troque por $PP</h3>
+          <p class="text-gray-500 text-sm mb-5 leading-relaxed">
+            Acesse Jupiter ou Raydium e troque SOL por $PP usando o contrato acima.
+          </p>
+          <div class="flex justify-center gap-4">
+            <a href="#" id="link-jupiter" class="text-pp-gold text-sm font-medium hover:text-white transition-colors">Jupiter</a>
+            <span class="text-gray-700">|</span>
+            <a href="#" id="link-raydium" class="text-pp-gold text-sm font-medium hover:text-white transition-colors">Raydium</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider"></div>
+
+  <!-- ========== COMUNIDADE ========== -->
+  <section class="relative py-24 px-6 z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">
+        Junte-se a <span class="text-pp-gold">Comunidade</span>
+      </h2>
+      <p class="text-gray-500 text-sm mb-10">Faca parte do movimento.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="#" target="_blank" class="social-btn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter/X
+        </a>
+        <a href="#" target="_blank" class="social-btn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </a>
+        <a href="#" target="_blank" class="social-btn">DexScreener</a>
+        <a href="#" target="_blank" class="social-btn">Birdeye</a>
+        <a href="https://solscan.io/token/B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt" target="_blank" class="social-btn">
+          Solscan
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /home-content -->
+
+  <!-- ========== WHITEPAPER CONTENT ========== -->
+  <div id="whitepaper-content" class="hidden relative z-10">
+    <div class="max-w-3xl mx-auto px-6 pt-28 pb-20">
+
+      <!-- Botao voltar -->
+      <button onclick="toggleWhitepaper()" class="inline-flex items-center gap-2 text-gray-500 hover:text-pp-gold text-sm mb-12 transition-colors bg-transparent border-none cursor-pointer font-body">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Voltar ao site
+      </button>
+
+      <!-- Capa -->
+      <div class="text-center mb-20">
+        <div class="mx-auto w-24 h-24 rounded-full overflow-hidden border-2 border-pp-gold/30 mb-8">
+          <img src="/assets/logo.png" alt="PELELECA" class="w-full h-full object-cover" />
+        </div>
+        <h1 class="text-5xl md:text-6xl font-display font-bold text-pp-gold mb-2">PELELECA</h1>
+        <p class="text-2xl font-display font-semibold text-pp-gold/60 tracking-[0.3em] mb-6">$PP</p>
+        <p class="text-xs text-gray-600 uppercase tracking-[0.3em] mb-2">Whitepaper v1.0</p>
+        <p class="text-sm text-gray-500">Marco 2026 &mdash; Solana Mainnet</p>
+      </div>
+
+      <!-- Indice -->
+      <div class="mb-16">
+        <p class="text-xs text-pp-gold/40 uppercase tracking-[0.3em] font-semibold mb-4">Indice</p>
+        <div class="space-y-0">
+          <a href="#wp-resumo" class="wp-toc-item">01 &nbsp; Resumo Executivo</a>
+          <a href="#wp-problema" class="wp-toc-item">02 &nbsp; O Problema</a>
+          <a href="#wp-resposta" class="wp-toc-item">03 &nbsp; A Resposta</a>
+          <a href="#wp-tokenomics" class="wp-toc-item">04 &nbsp; Tokenomics</a>
+          <a href="#wp-tecnico" class="wp-toc-item">05 &nbsp; Infraestrutura Tecnica</a>
+          <a href="#wp-seguranca" class="wp-toc-item">06 &nbsp; Seguranca On-Chain</a>
+          <a href="#wp-contrato" class="wp-toc-item">07 &nbsp; Endereco do Token</a>
+          <a href="#wp-fomento" class="wp-toc-item">08 &nbsp; Fomento (7%)</a>
+          <a href="#wp-roadmap" class="wp-toc-item">09 &nbsp; Roadmap</a>
+          <a href="#wp-disclaimer" class="wp-toc-item">10 &nbsp; Disclaimer Legal</a>
+        </div>
+      </div>
+
+      <!-- 01 - Resumo Executivo -->
+      <div class="wp-section" id="wp-resumo">
+        <p class="wp-label">Secao 01</p>
+        <h2 class="wp-title">Resumo <span class="text-pp-gold">Executivo</span></h2>
+        <p class="wp-text">
+          A <span class="text-pp-gold font-medium">PELELECA ($PP)</span> e um token na blockchain Solana
+          criado como resposta simbolica ao maior rombo da historia do Fundo Garantidor de Creditos (FGC) brasileiro.
+        </p>
+        <p class="wp-text">
+          Cada token representa <span class="text-white font-medium">R$ 1 do prejuizo estimado de R$ 51,8 bilhoes</span>
+          causado pela crise do Banco Master. Nao e uma moeda de odio &mdash; e uma moeda de uniao,
+          construida pela comunidade, sem intermediarios e sem promessas falsas.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-8">
+          <div class="wp-stat-box">
+            <p class="text-2xl font-display font-bold text-pp-gold">51,8B</p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-wider mt-1">Supply Total</p>
+          </div>
+          <div class="wp-stat-box">
+            <p class="text-2xl font-display font-bold text-pp-gold">93%</p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-wider mt-1">Liquidez</p>
+          </div>
+          <div class="wp-stat-box">
+            <p class="text-2xl font-display font-bold text-pp-gold">7%</p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-wider mt-1">Fomento</p>
+          </div>
+          <div class="wp-stat-box">
+            <p class="text-2xl font-display font-bold text-pp-gold">0%</p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-wider mt-1">Insiders</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 - O Problema -->
+      <div class="wp-section" id="wp-problema">
+        <p class="wp-label">Secao 02</p>
+        <h2 class="wp-title">O <span class="text-pp-gold">Problema</span></h2>
+        <p class="wp-text">
+          Em 2025, a crise do Banco Master revelou um dos maiores esquemas financeiros da historia do Brasil.
+          Um unico banqueiro construiu um imperio baseado em ativos fraudulentos, CDBs com taxas infladas
+          e uma rede de influencia que permeava os tres poderes da Republica.
+        </p>
+        <p class="wp-text">
+          Enquanto <span class="text-pp-gold font-medium">R$ 111 milhoes eram gastos em festas particulares</span>
+          com artistas internacionais e jatos privados, milhoes de brasileiros enfrentavam dificuldades
+          para fechar o mes. O rombo estimado no FGC &mdash; o fundo que deveria proteger o dinheiro
+          do pequeno investidor &mdash; atingiu a marca historica de
+          <span class="text-white font-medium">R$ 51,8 bilhoes</span>.
+        </p>
+        <div class="wp-info-box my-6">
+          <p class="text-sm text-gray-400 leading-relaxed" style="margin: 0;">
+            O Fundo Garantidor de Creditos (FGC) foi criado para proteger depositos de ate R$ 250 mil
+            em instituicoes financeiras. O rombo do Banco Master comprometeu a capacidade desse fundo
+            de cumprir sua funcao basica: proteger o povo.
+          </p>
+        </div>
+        <p class="wp-text">
+          O sistema financeiro tradicional falhou. As regulacoes falharam. A fiscalizacao falhou.
+          E quem paga a conta, como sempre, e o povo.
+        </p>
+      </div>
+
+      <!-- 03 - A Resposta -->
+      <div class="wp-section" id="wp-resposta">
+        <p class="wp-label">Secao 03</p>
+        <h2 class="wp-title">A <span class="text-pp-gold">Resposta</span></h2>
+        <p class="wp-text">
+          A PELELECA nasceu como um grito de indignacao transformado em acao coletiva.
+          Nao e uma promessa de retorno financeiro &mdash; e um <span class="text-pp-gold font-medium">simbolo de uniao</span>.
+        </p>
+        <p class="wp-text">
+          Se um individuo sozinho conseguiu movimentar bilhoes em uma estrutura opaca e fraudulenta,
+          imagine o que uma comunidade inteira, operando de forma transparente e descentralizada,
+          pode construir na blockchain.
+        </p>
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-4">Principios Fundamentais</h3>
+        <ul class="wp-list">
+          <li><span class="text-white font-medium">Transparencia total</span> &mdash; todas as transacoes verificaveis on-chain</li>
+          <li><span class="text-white font-medium">Zero privilegio</span> &mdash; sem wallet de insider, sem pre-venda, sem reserva escondida</li>
+          <li><span class="text-white font-medium">Liquidez permanente</span> &mdash; LP queimado, impossivel remover liquidez</li>
+          <li><span class="text-white font-medium">Imutabilidade</span> &mdash; authorities revogadas, ninguem controla o token</li>
+          <li><span class="text-white font-medium">Comunidade primeiro</span> &mdash; decisoes coletivas, crescimento organico</li>
+        </ul>
+      </div>
+
+      <!-- 04 - Tokenomics -->
+      <div class="wp-section" id="wp-tokenomics">
+        <p class="wp-label">Secao 04</p>
+        <h2 class="wp-title"><span class="text-pp-gold">Tokenomics</span></h2>
+        <p class="wp-text">
+          A distribuicao dos tokens foi desenhada para maximizar a seguranca e confianca da comunidade.
+          Sem mecanismos complexos, sem vesting, sem airdrops condicionais. Simples e direto.
+        </p>
+
+        <div class="wp-info-box border-pp-gold/10 text-center my-8">
+          <p class="text-4xl md:text-5xl font-display font-bold text-pp-gold mb-1">51.800.000.000</p>
+          <p class="text-xs text-gray-500 uppercase tracking-[0.2em]">Supply Total Fixo &mdash; 6 Casas Decimais</p>
+        </div>
+
+        <!-- Barra -->
+        <div class="my-8">
+          <div class="flex gap-1 h-3 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-pp-gold to-amber-500 rounded-l-full" style="width: 93%"></div>
+            <div class="bg-gradient-to-r from-emerald-600 to-pp-green rounded-r-full" style="width: 7%"></div>
+          </div>
+          <div class="flex justify-between mt-2 text-xs text-gray-500">
+            <span>93% Pool de Liquidez</span>
+            <span>7% Fomento</span>
+          </div>
+        </div>
+
+        <!-- Tabela -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm my-6">
+            <thead>
+              <tr class="border-b border-white/[0.06]">
+                <th class="text-left py-3 px-4 text-[10px] text-pp-gold/50 uppercase tracking-wider font-semibold">Alocacao</th>
+                <th class="text-left py-3 px-4 text-[10px] text-pp-gold/50 uppercase tracking-wider font-semibold">%</th>
+                <th class="text-left py-3 px-4 text-[10px] text-pp-gold/50 uppercase tracking-wider font-semibold">Quantidade</th>
+                <th class="text-left py-3 px-4 text-[10px] text-pp-gold/50 uppercase tracking-wider font-semibold">Destino</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-400">
+              <tr class="border-b border-white/[0.03]">
+                <td class="py-3 px-4 text-white font-medium">Pool de Liquidez</td>
+                <td class="py-3 px-4 text-pp-gold font-semibold">93%</td>
+                <td class="py-3 px-4">48.174.000.000 PP</td>
+                <td class="py-3 px-4">Raydium (SOL/PP) &mdash; LP queimado</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="py-3 px-4 text-white font-medium">Fomento</td>
+                <td class="py-3 px-4 text-pp-gold font-semibold">7%</td>
+                <td class="py-3 px-4">3.626.000.000 PP</td>
+                <td class="py-3 px-4">Criadores, parceiros, comunidade</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="py-3 px-4 text-white font-medium">Insiders / Pre-venda</td>
+                <td class="py-3 px-4">0%</td>
+                <td class="py-3 px-4">0</td>
+                <td class="py-3 px-4">Nao existe</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 text-white font-medium">Equipe / Fundadores</td>
+                <td class="py-3 px-4">0%</td>
+                <td class="py-3 px-4">0</td>
+                <td class="py-3 px-4">Nao existe</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-4">Por que 93/7?</h3>
+        <p class="wp-text">
+          A esmagadora maioria do supply (93%) vai para liquidez permanente, garantindo que qualquer
+          pessoa possa comprar e vender $PP a qualquer momento. Os 7% de fomento existem exclusivamente
+          para impulsionar a comunidade de forma transparente &mdash; cada distribuicao e rastreavel on-chain.
+        </p>
+      </div>
+
+      <!-- 05 - Tecnico -->
+      <div class="wp-section" id="wp-tecnico">
+        <p class="wp-label">Secao 05</p>
+        <h2 class="wp-title">Infraestrutura <span class="text-pp-gold">Tecnica</span></h2>
+        <p class="wp-text">
+          A PELELECA foi construida usando as ferramentas padrao do ecossistema Solana,
+          sem contratos customizados ou codigo proprietario. Transparente e auditavel.
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm my-6">
+            <thead>
+              <tr class="border-b border-white/[0.06]">
+                <th class="text-left py-3 px-4 text-[10px] text-pp-gold/50 uppercase tracking-wider font-semibold">Especificacao</th>
+                <th class="text-left py-3 px-4 text-[10px] text-pp-gold/50 uppercase tracking-wider font-semibold">Detalhe</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-400">
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Blockchain</td><td class="py-3 px-4 text-white font-medium">Solana Mainnet</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Padrao</td><td class="py-3 px-4 text-white font-medium">Token Nativo Solana</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Casas Decimais</td><td class="py-3 px-4 text-white font-medium">6</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Supply</td><td class="py-3 px-4 text-white font-medium">51.800.000.000 (fixo)</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Metadata</td><td class="py-3 px-4 text-white font-medium">Metaplex Token Metadata (V3)</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">DEX</td><td class="py-3 px-4 text-white font-medium">Raydium AMM (par SOL/PP)</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Mint Authority</td><td class="py-3 px-4 text-pp-green font-medium">Revogada</td></tr>
+              <tr class="border-b border-white/[0.03]"><td class="py-3 px-4">Freeze Authority</td><td class="py-3 px-4 text-pp-green font-medium">Revogada</td></tr>
+              <tr><td class="py-3 px-4">LP Tokens</td><td class="py-3 px-4 text-pp-green font-medium">Queimados</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-4">Fluxo de Deploy</h3>
+        <ul class="wp-list">
+          <li>Criacao do token com 6 casas decimais na Solana</li>
+          <li>Adicionamento de metadata on-chain (nome, simbolo, logo) via Metaplex</li>
+          <li>Mint do supply total (51,8B) para a wallet do deployer</li>
+          <li>Transferencia de 7% (3,626B) para a wallet de fomento</li>
+          <li>Criacao do pool de liquidez na Raydium com os 93% restantes</li>
+          <li>Queima dos LP tokens (liquidez permanente e irremovivel)</li>
+          <li>Revogacao da Mint Authority (ninguem pode criar mais tokens)</li>
+          <li>Revogacao da Freeze Authority (ninguem pode congelar wallets)</li>
+        </ul>
+        <p class="wp-text mt-4">
+          Cada etapa gerou uma transacao verificavel na blockchain Solana.
+        </p>
+      </div>
+
+      <!-- 06 - Seguranca -->
+      <div class="wp-section" id="wp-seguranca">
+        <p class="wp-label">Secao 06</p>
+        <h2 class="wp-title">Seguranca <span class="text-pp-gold">On-Chain</span></h2>
+        <p class="wp-text">
+          A seguranca da PELELECA nao depende de promessas &mdash; depende de criptografia.
+          Todas as garantias sao verificaveis diretamente na blockchain por qualquer pessoa.
+        </p>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-3">Mint Authority Revogada</h3>
+        <p class="wp-text">
+          A autoridade de emissao foi permanentemente revogada apos o mint do supply total.
+          <span class="text-white font-medium">Ninguem pode criar novos tokens $PP</span>.
+          O supply de 51,8 bilhoes e fixo e imutavel para sempre.
+        </p>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-3">Freeze Authority Revogada</h3>
+        <p class="wp-text">
+          A autoridade de congelamento foi permanentemente revogada.
+          <span class="text-white font-medium">Ninguem pode congelar ou bloquear os tokens</span> de nenhuma wallet.
+        </p>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-3">LP Tokens Queimados</h3>
+        <p class="wp-text">
+          Os tokens de liquidez (LP) do pool Raydium foram <span class="text-white font-medium">queimados permanentemente</span>.
+          Isso torna impossivel remover a liquidez do pool.
+          <span class="text-pp-gold font-medium">Rug pull e matematicamente impossivel.</span>
+        </p>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-3">Codigo Aberto</h3>
+        <p class="wp-text">
+          Todos os scripts de deploy sao publicos. Qualquer desenvolvedor pode auditar o processo
+          completo de criacao do token.
+        </p>
+      </div>
+
+      <!-- 07 - Contrato -->
+      <div class="wp-section" id="wp-contrato">
+        <p class="wp-label">Secao 07</p>
+        <h2 class="wp-title">Endereco do <span class="text-pp-gold">Token</span></h2>
+        <p class="wp-text">O endereco oficial do token PELELECA ($PP) na Solana Mainnet:</p>
+
+        <div class="bg-black/30 rounded-xl px-5 py-4 border border-pp-gold/[0.08] my-6 flex items-center justify-between gap-3">
+          <code class="text-pp-gold text-sm font-mono break-all">B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt</code>
+          <a href="https://solscan.io/token/B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt" target="_blank" rel="noopener" class="text-pp-gold/60 hover:text-pp-gold text-xs whitespace-nowrap transition-colors">
+            Solscan &#8599;
+          </a>
+        </div>
+
+        <p class="text-sm text-gray-500">
+          Sempre verifique o endereco do contrato antes de realizar qualquer transacao.
+          O endereco oficial e o unico listado acima.
+        </p>
+      </div>
+
+      <!-- 08 - Fomento -->
+      <div class="wp-section" id="wp-fomento">
+        <p class="wp-label">Secao 08</p>
+        <h2 class="wp-title">Fomento <span class="text-pp-gold">(7%)</span></h2>
+        <p class="wp-text">
+          A reserva de 7% do supply (<span class="text-pp-gold font-medium">3.626.000.000 $PP</span>) esta
+          alocada em uma wallet publica e transparente, destinada exclusivamente ao crescimento
+          da comunidade e do ecossistema PELELECA.
+        </p>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-4">Usos Previstos</h3>
+        <ul class="wp-list">
+          <li><span class="text-white font-medium">Criadores de conteudo</span> &mdash; recompensa para quem produz conteudo sobre o projeto</li>
+          <li><span class="text-white font-medium">Parcerias estrategicas</span> &mdash; colaboracoes com outros projetos e comunidades</li>
+          <li><span class="text-white font-medium">Acoes de comunidade</span> &mdash; eventos, campanhas e engajamento</li>
+          <li><span class="text-white font-medium">Marketing organico</span> &mdash; amplificacao da mensagem do movimento</li>
+        </ul>
+
+        <h3 class="text-lg font-display font-semibold text-white mt-8 mb-4">Regras de Transparencia</h3>
+        <ul class="wp-list">
+          <li>Toda distribuicao e feita manualmente e registrada on-chain</li>
+          <li>A wallet de fomento e publica e auditavel por qualquer pessoa</li>
+          <li>Nao existe vesting automatico, lockup escondido ou mecanismo oculto</li>
+          <li>A comunidade pode acompanhar cada movimentacao em tempo real</li>
+        </ul>
+      </div>
+
+      <!-- 09 - Roadmap -->
+      <div class="wp-section" id="wp-roadmap">
+        <p class="wp-label">Secao 09</p>
+        <h2 class="wp-title"><span class="text-pp-gold">Roadmap</span></h2>
+        <p class="wp-text">
+          O roadmap da PELELECA e organico e guiado pela comunidade.
+          Sem promessas inflaveis &mdash; apenas passos concretos.
+        </p>
+
+        <div class="space-y-0 mt-8">
+          <div class="flex gap-6 py-5 border-b border-white/[0.04]">
+            <span class="text-xs font-display font-bold text-pp-gold uppercase tracking-wider w-16 flex-shrink-0 pt-0.5">Fase 1</span>
+            <div>
+              <p class="text-white font-medium text-sm mb-1">Lancamento</p>
+              <p class="text-gray-500 text-sm">Deploy do token, metadata on-chain, pool de liquidez na Raydium, queima de LP, revogacao de authorities, site e whitepaper.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 py-5 border-b border-white/[0.04]">
+            <span class="text-xs font-display font-bold text-pp-gold uppercase tracking-wider w-16 flex-shrink-0 pt-0.5">Fase 2</span>
+            <div>
+              <p class="text-white font-medium text-sm mb-1">Comunidade</p>
+              <p class="text-gray-500 text-sm">Crescimento organico nas redes sociais (Twitter, Telegram, Discord). Distribuicao de fomento para criadores e parceiros.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 py-5 border-b border-white/[0.04]">
+            <span class="text-xs font-display font-bold text-pp-gold uppercase tracking-wider w-16 flex-shrink-0 pt-0.5">Fase 3</span>
+            <div>
+              <p class="text-white font-medium text-sm mb-1">Listagens</p>
+              <p class="text-gray-500 text-sm">Listagem em agregadores (DexScreener, Birdeye, CoinGecko, CoinMarketCap). Aumento de visibilidade e volume.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 py-5">
+            <span class="text-xs font-display font-bold text-pp-gold uppercase tracking-wider w-16 flex-shrink-0 pt-0.5">Fase 4</span>
+            <div>
+              <p class="text-white font-medium text-sm mb-1">Expansao</p>
+              <p class="text-gray-500 text-sm">Parcerias com outros projetos do ecossistema Solana. Acoes de comunidade em escala. O futuro e decidido coletivamente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 - Disclaimer -->
+      <div class="wp-section" id="wp-disclaimer">
+        <p class="wp-label">Secao 10</p>
+        <h2 class="wp-title">Disclaimer <span class="text-pp-gold">Legal</span></h2>
+        <div class="wp-info-box mt-6">
+          <p class="text-sm text-gray-400 leading-[1.9] mb-4">
+            $PP (PELELECA) e um <strong class="text-white">ativo digital experimental e especulativo</strong> criado na blockchain Solana.
+            Este whitepaper e fornecido apenas para fins informativos e nao constitui aconselhamento financeiro,
+            de investimento, juridico ou fiscal.
+          </p>
+          <p class="text-sm text-gray-400 leading-[1.9] mb-4">
+            O token $PP nao representa participacao acionaria, divida, ou qualquer direito sobre ativos reais.
+            Nao ha garantia de valorizacao, retorno financeiro, ou manutencao de valor.
+          </p>
+          <p class="text-sm text-gray-400 leading-[1.9] mb-4">
+            Qualquer pessoa que adquira tokens $PP deve estar ciente dos riscos envolvidos e
+            <strong class="text-white">preparada para perder 100% do valor investido</strong>.
+            A negociacao de ativos digitais envolve riscos significativos, incluindo volatilidade extrema,
+            risco de liquidez e risco regulatorio.
+          </p>
+          <p class="text-sm text-gray-400 leading-[1.9]">
+            Faca sua propria pesquisa (<strong class="text-white">DYOR &mdash; Do Your Own Research</strong>) antes de tomar
+            qualquer decisao. O projeto PELELECA nao se responsabiliza por perdas financeiras decorrentes
+            da compra, venda ou posse de tokens $PP.
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer whitepaper -->
+      <div class="text-center pt-12 pb-8 border-t border-white/[0.03] mt-12">
+        <p class="text-xs text-gray-600">PELELECA ($PP) &mdash; Whitepaper v1.0 &mdash; Marco 2026</p>
+        <div class="flex justify-center gap-4 mt-3 text-xs">
+          <button onclick="toggleWhitepaper()" class="text-pp-gold/60 hover:text-pp-gold transition-colors bg-transparent border-none cursor-pointer font-body">Voltar ao site</button>
+          <span class="text-gray-700">&middot;</span>
+          <a href="https://solscan.io/token/B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt" target="_blank" class="text-pp-gold/60 hover:text-pp-gold transition-colors">Solscan</a>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /whitepaper-content -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="relative py-12 px-6 border-t border-white/[0.03] z-10">
+    <div class="max-w-4xl mx-auto text-center space-y-5">
+      <div class="flex items-center justify-center gap-3">
+        <div class="logo-ring w-7 h-7">
+          <img src="/assets/logo.png" alt="PP" class="w-full h-full rounded-full object-cover opacity-40" />
+        </div>
+        <span class="font-display font-bold text-gray-600 text-sm tracking-widest">PELELECA $PP</span>
+      </div>
+      <p class="text-gray-700 text-xs max-w-lg mx-auto leading-relaxed">
+        $PP (PELELECA) e um ativo digital experimental e especulativo na blockchain Solana.
+        Nao constitui aconselhamento financeiro. Esteja preparado para perder 100% do valor investido. DYOR.
+      </p>
+      <div class="flex items-center justify-center gap-4 text-[10px] text-gray-700">
+        <a href="https://solscan.io/token/B5J72mRdZLh3THqUWRQa4M3CdXxkLDueaZp56a3wzwNt" target="_blank" class="hover:text-pp-gold transition-colors">Solscan</a>
+        <span>&middot;</span>
+        <span>&copy; 2026 PELELECA</span>
+        <span>&middot;</span>
+        <span>A Festa do Povo</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JS ========== -->
+  <script>
+    // Toggle whitepaper
+    var wpVisible = false;
+    window.toggleWhitepaper = function() {
+      wpVisible = !wpVisible;
+      var home = document.getElementById('home-content');
+      var wp = document.getElementById('whitepaper-content');
+      var footer = document.querySelector('footer');
+      var homeLinks = document.querySelectorAll('.home-link');
+      var wpBtn = document.getElementById('wp-nav-btn');
+
+      if (wpVisible) {
+        home.classList.add('hidden');
+        wp.classList.remove('hidden');
+        footer.classList.add('hidden');
+        homeLinks.forEach(function(l) { l.style.display = 'none'; });
+        if (wpBtn) { wpBtn.classList.add('text-pp-gold'); wpBtn.classList.remove('text-gray-500'); }
+      } else {
+        home.classList.remove('hidden');
+        wp.classList.add('hidden');
+        footer.classList.remove('hidden');
+        homeLinks.forEach(function(l) { l.style.display = ''; });
+        if (wpBtn) { wpBtn.classList.remove('text-pp-gold'); wpBtn.classList.add('text-gray-500'); }
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('mobile-menu').classList.add('hidden');
+    };
+
+    // Header blur no scroll
+    (function() {
+      var header = document.getElementById('header');
+      var last = 0;
+      window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > 30) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+        last = y;
+      });
+    })();
+
+    // Mobile menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+      a.addEventListener('click', function() { document.getElementById('mobile-menu').classList.add('hidden'); });
+    });
+
+    // Copiar contrato
+    document.getElementById('btn-copy-contract').addEventListener('click', function() {
+      var addr = document.getElementById('contract-address').textContent.trim();
+      if (addr) {
+        navigator.clipboard.writeText(addr).then(function() {
+          var fb = document.getElementById('copy-feedback');
+          fb.style.opacity = '1';
+          setTimeout(function() { fb.style.opacity = '0'; }, 2000);
+        });
+      }
+    });
+
+    // Contadores animados
+    var countersAnimated = false;
+    function animateCounters() {
+      if (countersAnimated) return;
+      countersAnimated = true;
+      document.querySelectorAll('[data-count]').forEach(function(el) {
+        var target = parseFloat(el.dataset.count);
+        var suffix = el.dataset.suffix || '';
+        var isDecimal = target % 1 !== 0;
+        var duration = 2200;
+        var startTime = null;
+
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var p = Math.min((ts - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 4);
+          var val = target * eased;
+          el.textContent = (isDecimal ? val.toFixed(1).replace('.', ',') : Math.round(val)) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    // Observer para animacoes ao aparecer
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          if (e.target.querySelector('[data-count]')) animateCounters();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.glass-card, .stat-card, .manifesto-block, section > div').forEach(function(el) {
+      obs.observe(el);
+    });
+
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        var t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // Particulas de fundo
+    (function() {
+      var c = document.getElementById('particles');
+      var ctx = c.getContext('2d');
+      function resize() { c.width = window.innerWidth; c.height = window.innerHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+
+      var pts = [];
+      for (var i = 0; i < 30; i++) {
+        pts.push({
+          x: Math.random() * c.width,
+          y: Math.random() * c.height,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.2,
+          r: Math.random() * 1.5 + 0.3,
+          o: Math.random() * 0.15 + 0.03,
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, c.width, c.height);
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = c.width;
+          if (p.x > c.width) p.x = 0;
+          if (p.y < 0) p.y = c.height;
+          if (p.y > c.height) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, 6.28);
+          ctx.fillStyle = 'rgba(255, 215, 0, ' + p.o + ')';
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>

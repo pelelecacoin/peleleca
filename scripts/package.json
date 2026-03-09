@@ -1,0 +1,24 @@
+{
+  "name": "peleleca-scripts",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Scripts de deploy on-chain do token PELELECA ($PP)",
+  "scripts": {
+    "create-token": "node create-token.mjs",
+    "revoke-authorities": "node revoke-authorities.mjs",
+    "transfer-fomento": "node transfer-fomento.mjs",
+    "create-pool": "node create-raydium-pool.mjs",
+    "burn-lp": "node burn-lp-tokens.mjs",
+    "verify": "node verify-deployment.mjs"
+  },
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.5.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.5.1",
+    "@raydium-io/raydium-sdk-v2": "^0.1.95-alpha",
+    "@solana/spl-token": "^0.4.12",
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0",
+    "dotenv": "^16.4.7"
+  }
+}

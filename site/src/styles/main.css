@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ========== BASE ========== */
+@layer base {
+  body {
+    @apply bg-pp-dark text-white font-body antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-pp-gold/20 text-white;
+  }
+}
+
+/* ========== COMPONENTS ========== */
+@layer components {
+
+  /* Botoes */
+  .btn-primary {
+    @apply bg-gradient-to-r from-pp-gold to-amber-500 text-black font-semibold
+    px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:scale-[1.03]
+    shadow-lg shadow-pp-gold/15 inline-block text-center;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.25);
+  }
+
+  .btn-secondary {
+    @apply border border-pp-gold/30 text-pp-gold font-semibold px-8 py-3.5 rounded-xl
+    hover:bg-pp-gold/5 hover:border-pp-gold/50 transition-all duration-300
+    inline-block text-center;
+  }
+
+  /* Glass cards */
+  .glass-card {
+    @apply bg-white/[0.02] backdrop-blur-sm rounded-2xl p-8
+    border border-white/[0.04] transition-all duration-500;
+  }
+
+  /* Stat cards */
+  .stat-card {
+    @apply bg-white/[0.02] backdrop-blur-sm rounded-2xl p-6
+    border border-white/[0.04] text-center
+    hover:border-pp-gold/15 transition-all duration-500;
+  }
+
+  /* Nav links */
+  .nav-link {
+    @apply relative text-gray-500 hover:text-pp-gold transition-colors duration-300
+    text-sm tracking-wide;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-6px] left-0 w-0 h-px bg-pp-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Social buttons */
+  .social-btn {
+    @apply flex items-center gap-2 bg-white/[0.02] border border-white/[0.05]
+    text-gray-400 font-medium px-5 py-2.5 rounded-xl
+    hover:border-pp-gold/20 hover:text-pp-gold hover:bg-pp-gold/[0.03]
+    transition-all duration-300 text-sm;
+  }
+
+  /* Section labels */
+  .section-label {
+    @apply text-pp-gold/60 text-xs font-medium uppercase tracking-[0.3em];
+  }
+
+  /* Section dividers */
+  .section-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-pp-gold/10 to-transparent;
+  }
+
+  /* Logo ring */
+  .logo-ring {
+    @apply rounded-full overflow-hidden ring-1 ring-pp-gold/30;
+  }
+
+  /* Security icon */
+  .security-icon {
+    @apply w-14 h-14 mx-auto mb-5 rounded-2xl bg-pp-gold/[0.04]
+    border border-pp-gold/[0.08] flex items-center justify-center
+    transition-transform duration-300;
+  }
+
+  /* Manifesto blocks */
+  .manifesto-block {
+    @apply flex gap-6 md:gap-8 py-8 border-b border-white/[0.03] last:border-b-0;
+  }
+
+  .manifesto-number {
+    @apply text-2xl md:text-3xl font-display font-bold text-pp-gold/20
+    flex-shrink-0 w-12 text-center pt-1;
+  }
+
+  .manifesto-content {
+    @apply flex-1;
+  }
+
+  /* Header scrolled */
+  .header-scrolled {
+    @apply bg-pp-dark/80 backdrop-blur-2xl shadow-2xl shadow-black/20;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.03);
+  }
+}
+
+/* ========== ANIMACOES ========== */
+
+/* Pulse CTA */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15); }
+  50% { box-shadow: 0 4px 40px rgba(255, 215, 0, 0.3); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in { animation: fade-in 0.9s ease-out forwards; }
+.animate-fade-in-delay-1 { opacity: 0; animation: fade-in 0.9s ease-out 0.15s forwards; }
+.animate-fade-in-delay-2 { opacity: 0; animation: fade-in 0.9s ease-out 0.3s forwards; }
+.animate-fade-in-delay-3 { opacity: 0; animation: fade-in 0.9s ease-out 0.5s forwards; }
+
+/* Blobs de fundo */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.06), transparent 70%);
+  top: -10%;
+  left: -5%;
+  animation: blob-float 20s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.04), transparent 70%);
+  bottom: 20%;
+  right: -5%;
+  animation: blob-float 25s ease-in-out infinite reverse;
+}
+
+.blob-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 200, 83, 0.03), transparent 70%);
+  top: 50%;
+  left: 30%;
+  animation: blob-float 22s ease-in-out infinite 5s;
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.9); }
+}
+
+/* Pulse lento logo */
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Bounce suave scroll indicator */
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ========== SCROLL ========== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: rgba(255, 215, 0, 0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 215, 0, 0.5); }
+
+/* ========== WHITEPAPER ========== */
+
+.wp-section {
+  @apply py-12 border-t border-white/[0.04];
+}
+
+.wp-label {
+  @apply text-[10px] text-pp-gold/30 uppercase tracking-[0.3em] font-semibold mb-3;
+}
+
+.wp-title {
+  @apply text-2xl md:text-3xl font-display font-bold text-white mb-6;
+}
+
+.wp-text {
+  @apply text-gray-400 text-[15px] leading-[1.9] mb-4;
+}
+
+.wp-info-box {
+  @apply bg-white/[0.02] border border-white/[0.04] rounded-xl p-6;
+}
+
+.wp-stat-box {
+  @apply bg-white/[0.02] border border-white/[0.04] rounded-xl p-4 text-center;
+}
+
+.wp-list {
+  @apply list-none p-0 space-y-2;
+}
+
+.wp-list li {
+  @apply relative pl-5 text-gray-400 text-[15px] leading-relaxed;
+}
+
+.wp-list li::before {
+  content: '';
+  @apply absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-pp-gold/30;
+}
+
+.wp-toc-item {
+  @apply block py-2.5 border-b border-white/[0.03] text-sm text-gray-400
+  hover:text-pp-gold transition-colors;
+}
+
+.wp-toc-item:last-child {
+  @apply border-b-0;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+  .manifesto-block {
+    @apply flex-col gap-2;
+  }
+
+  .manifesto-number {
+    @apply w-auto text-left text-xl;
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+scripts/.env
+*.log
+deployment-info.json
+.DS_Store
+Thumbs.db
+data/
+*.keypair.json
+deployer-keypair.json
